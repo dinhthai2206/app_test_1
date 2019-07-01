@@ -3,5 +3,5 @@ class Test < ApplicationRecord
   has_many :user_tests
   has_many :users, through: :user_tests
 
-  enum status: {draff: 0, public: 1}
+  enum status: {draff: 0, publish: 1}
 end
