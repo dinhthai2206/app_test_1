@@ -1,0 +1,17 @@
+<div id="categories-index">
+  <h1><%= t ".categories" %></h1>
+  <%= link_to t(".new"), new_dashboard_category_path %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"><%= t ".category" %></th>
+        <th scope="col"><%= t ".tests" %></th>
+        <th scope="col"><%= t ".actions" %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render @categories %>
+    </tbody>
+  </table>
+</div>
