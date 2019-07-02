@@ -75,6 +75,15 @@ en:
         test: Test %{id}
         back: Back
 
+  layouts:
+    dashboard_sidebar: 
+      model: Model
+      members: Members
+      categories: Categories
+      tests: Tests
+    dashboard_header:
+      dashboard: Dashboard
+      log_out: Log out
   time:
     formats:
       day: "%d %B , %Y"

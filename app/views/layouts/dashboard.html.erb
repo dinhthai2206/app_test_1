@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AppTest1</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css">
+  </head>
+
+  <body class="app sidebar-show aside-menu-show">
+    <%= render "layouts/dashboard_header" %>
+    <div class="app-body">
+      <div class="sidebar">
+        <%= render "layouts/dashboard_sidebar" %>
+      </div>
+      <main class="main p-3">
+        <%= yield %>
+      </main>
+      <%# <aside class="aside-menu">
+        <!-- Aside menu content here -->
+      </aside> %>
+    </div>
+    <%= render "layouts/dashboard_footer" %>
+
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+  </body>
+</html>
