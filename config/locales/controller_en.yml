@@ -9,3 +9,7 @@ en:
         failed: Update category failed
       destroy:
         success: Category deleted
+    members:
+      create:
+        success: New user created
+        failed: Create new user failed

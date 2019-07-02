@@ -16,5 +16,15 @@ module AppTest1
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.smtp_settings = {
+      address:              "smtp.gmail.com",
+      port:                 587,
+      domain:               "google.com",
+      user_name:            Figaro.env.mail_user_name,
+      password:             Figaro.env.mail_password,
+      authentication:       'plain',
+      enable_starttls_auto: true
+    }
   end
 end

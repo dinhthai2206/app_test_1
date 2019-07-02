@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :user_tests
   has_many :tests, through: :user_tests
+  enum gender: {female: 0, male: 1}
 end
