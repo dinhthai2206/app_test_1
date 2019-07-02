@@ -1,0 +1,10 @@
+<tr id="category-<%= category.id %>">
+  <td><%= category.title %></td>
+  <td><%= category.tests.count %></td>
+  <td><%= link_to t(".show"), dashboard_category_path(category) %></td>
+  <td><%= link_to t(".edit"), edit_dashboard_category_path(category) %></td>
+  <td>
+    <%= link_to t(".delete"), dashboard_category_path(category), remote: true, method: :delete, 
+    data:{confirm: t(".confirm")}, class: "btn btn-danger" %>
+  </td>
+</tr>

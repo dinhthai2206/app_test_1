@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     root "dashboard#home"
     devise_for :admins, controllers: {sessions: "dashboard/sessions"}
+    resources :categories
   end
 
   devise_for :members

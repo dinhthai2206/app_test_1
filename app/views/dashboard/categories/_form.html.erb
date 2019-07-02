@@ -1,0 +1,9 @@
+<%= form_for [:dashboard, @category] do |f| %>
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: t(".insert"), class: "form-control" %>
+  </div>
+  <div class="field">
+    <%= f.submit %>
+  </div>
+<% end %>

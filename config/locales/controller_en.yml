@@ -1,0 +1,11 @@
+en:
+  dashboard:
+    categories:
+      create: 
+        success: New category created
+        failed: Create new category failed
+      update:
+        success: Category updated
+        failed: Update category failed
+      destroy:
+        success: Category deleted
