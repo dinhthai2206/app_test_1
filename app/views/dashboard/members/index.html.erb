@@ -1,0 +1,18 @@
+<div>
+  <h1><%= t ".members" %></h1>
+  <%= link_to t(".new"), new_dashboard_member_path %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"><%= t ".member" %></th>
+        <th scope="col"><%= t ".email" %></th>
+        <th scope="col"><%= t ".tests" %></th>
+        <th scope="col"><%= t ".action" %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= render @members %>
+    </tbody>
+  </table>
+</div>
