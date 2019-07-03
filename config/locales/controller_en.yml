@@ -13,3 +13,10 @@ en:
       create:
         success: New user created
         failed: Create new user failed
+    tests:
+      create: 
+        success: New test created
+        failed: Create new test failed
+      update:
+        success: Test updated
+        failed: Update test failed

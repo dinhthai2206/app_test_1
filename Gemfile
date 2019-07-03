@@ -15,6 +15,7 @@ gem "bootsnap", ">= 1.1.0", require: false
 gem "devise"
 gem "jquery-rails"
 gem "figaro"
+gem "cocoon"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

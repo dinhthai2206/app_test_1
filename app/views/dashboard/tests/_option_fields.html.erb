@@ -1,0 +1,11 @@
+<div class="nested-fields">
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+    <%= link_to_remove_association t(".remove_option"), f %>
+  </div>
+  <div class="field">
+    <%= f.label :correct %>
+    <%= f.collection_radio_buttons :correct, Option.corrects.map{|key, value| ["#{key}".capitalize, key]}, :last, :first %>
+  </div>
+</div>
