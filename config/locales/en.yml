@@ -45,8 +45,11 @@ en:
         test: Test %{id}
         show: Show
         edit: Edit
-        Delete: Delete
+        delete: Delete
         confirm: Are you sure?
+        publish: Publish
+        draff: Draff
+        published: Published
       edit:
         edit_test: Edit the test
       index:

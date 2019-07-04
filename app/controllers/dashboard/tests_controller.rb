@@ -24,6 +24,7 @@ class Dashboard::TestsController < Dashboard::DashboardController
   end
 
   def edit
+    redirect_to dashboard_test_path(@test) if @test.publish?
   end
 
   def update
@@ -38,6 +39,16 @@ class Dashboard::TestsController < Dashboard::DashboardController
 
   def destroy
     @test.destroy
+    redirect_to dashboard_tests_path
+  end
+
+  def publish
+    @test.publish!
+    redirect_to dashboard_tests_path
+  end
+
+  def draff
+    @test.draff! if @test.members.count == 0
     redirect_to dashboard_tests_path
   end
 

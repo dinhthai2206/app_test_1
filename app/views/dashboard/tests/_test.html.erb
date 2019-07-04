@@ -4,10 +4,20 @@
   <td><%= test.questions.count %></td>
   <td><%= test.members.count %></td>
   <td><%= link_to t(".show"), dashboard_test_path(test) %></td>
-  <td><%= link_to t(".edit"), edit_dashboard_test_path(test) %></td>
-  <td>Public</td>
-  <td>
-    <%= link_to t(".delete"), dashboard_test_path(test), method: :delete, 
-    data:{confirm: t(".confirm")}, class: "btn btn-danger" %>
-  </td>
+  <% if test.draff? %>
+    <td><%= link_to t(".publish"), publish_dashboard_test_path(test) %></td>  
+    <td><%= link_to t(".edit"), edit_dashboard_test_path(test) %></td>
+    <td>
+      <%= link_to t(".delete"), dashboard_test_path(test), method: :delete, 
+      data:{confirm: t(".confirm")}, class: "btn btn-danger" %>
+    </td>
+  <% elsif test.publish? && test.members.count == 0 %>
+    <td><%= link_to t(".draff"), draff_dashboard_test_path(test) %></td>  
+    <td><%= t ".edit" %></td>
+    <td><%= t ".delete" %></td>
+  <% else %>
+    <td><%= t ".published" %></td>
+    <td><%= t ".edit" %></td>
+    <td><%= t ".delete" %></td>
+  <% end %>
 </tr>
