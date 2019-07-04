@@ -31,3 +31,34 @@ en:
         create: Create new user
       form:
         create_user: Create user
+    tests:
+      form:
+        add_question: Add question
+        questions: Questions
+      option_fields:
+        remove_option: Remove option
+      question_fields:
+        remove_question: Remove question
+        options: Options
+        add_option: Add option
+      test:
+        test: Test %{id}
+        show: Show
+        edit: Edit
+        Delete: Delete
+        confirm: Are you sure?
+      edit:
+        edit_test: Edit the test
+      index:
+        all_tests: All Tests
+        new: Add new test
+        test: Test
+        category: Category
+        questions: Questions
+        members: Members
+        action: Action
+      new:
+        new_test: Create new test
+      show:
+        test: Test %{id}
+        back: Back

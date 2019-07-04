@@ -1,0 +1,13 @@
+<tr>
+  <td><%= t(".test", id: test.id) %></td>
+  <td><%= test.category.title %></td>
+  <td><%= test.questions.count %></td>
+  <td><%= test.members.count %></td>
+  <td><%= link_to t(".show"), dashboard_test_path(test) %></td>
+  <td><%= link_to t(".edit"), edit_dashboard_test_path(test) %></td>
+  <td>Public</td>
+  <td>
+    <%= link_to t(".delete"), dashboard_test_path(test), method: :delete, 
+    data:{confirm: t(".confirm")}, class: "btn btn-danger" %>
+  </td>
+</tr>

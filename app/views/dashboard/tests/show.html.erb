@@ -1,0 +1,25 @@
+<h2><%= t(".test", id: @test.id) %></h2>
+<%= link_to t(".back"), dashboard_tests_path %><br>
+
+<div>
+  <ol>
+    <% @test.questions.each do |question| %>
+      <li>
+        <p><%= question.content %></p>
+        <ul style="list-style: none;">
+          <% question.options.each do |option| %>
+            <li>
+              <% if option.right? %>
+                <%= radio_button_tag option.content, option.id, true, disabled: true %>
+                <%= option.content %>
+              <% else %>
+                <%= radio_button_tag option.content, option.id, false, disabled: true %>
+                <%= option.content %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ol>
+</div>

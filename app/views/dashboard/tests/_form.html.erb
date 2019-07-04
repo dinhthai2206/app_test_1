@@ -1,0 +1,19 @@
+<%= form_for [:dashboard, @test] do |f| %>
+  <%= render "shared/error_messages", object: @test %>
+  <div class="field">
+    <%= f.label :categogy %>
+    <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :title) %>
+  </div>
+  <h3><%= t ".questions" %></h3>
+  <div id="questions">
+    <%= f.fields_for :questions do |question| %>
+      <%= render "question_fields", f: question %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to_add_association t(".add_question"), f, :questions, class: "link" %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
