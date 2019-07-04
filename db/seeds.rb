@@ -71,6 +71,7 @@ a = member_id.product(published_test_id)
 (a.size - 100).times do |n|
   UserTest.create!(
     user_id: a[n-1][0],
-    test_id: a[n-1][1]
+    test_id: a[n-1][1],
+    score: rand(0..10),
   )
 end

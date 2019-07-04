@@ -31,6 +31,15 @@ en:
         create: Create new user
       form:
         create_user: Create user
+      search_form:
+        search_member: Search member
+        search: Search
+      show:
+        test: Test
+        category: Category
+        score: Score
+        time: Time
+        test_id: Test %{id}
     tests:
       form:
         add_question: Add question
@@ -65,3 +74,7 @@ en:
       show:
         test: Test %{id}
         back: Back
+
+  time:
+    formats:
+      day: "%d %B , %Y"

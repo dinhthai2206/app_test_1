@@ -1,1 +1,22 @@
 <h1><%= @member.name %></h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col"><%= t ".test" %></th>
+      <th scope="col"><%= t ".category" %></th>
+      <th scope="col"><%= t ".score" %></th>
+      <th scope="col"><%= t ".time" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_tests.each do |u| %>
+      <tr>
+        <td><%= t(".test_id", id: u.test.id) %></td>
+        <td><%= u.test.category.title %></td>
+        <td><%= u.score %></td>
+        <td><%= l(u.created_at, format: :day) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
