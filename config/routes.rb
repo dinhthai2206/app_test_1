@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     devise_for :admins, controllers: {sessions: "dashboard/sessions"}
     resources :categories
     resources :members
-    resources :tests
+    resources :tests do
+      member do
+        get :publish, :draff
+      end
+    end
   end
 
   devise_for :members
