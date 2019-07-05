@@ -1,4 +1,5 @@
 class Dashboard::DashboardController < ApplicationController
+  layout "dashboard"
   before_action :require_login
 
   def home
