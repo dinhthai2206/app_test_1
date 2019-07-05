@@ -6,6 +6,7 @@ class Dashboard::MembersController < Dashboard::DashboardController
 
   def show
     @member = Member.find_by id: params[:id]
+    @user_tests = @member.user_tests
   end
 
   def new

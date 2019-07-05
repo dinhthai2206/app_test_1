@@ -84,6 +84,7 @@ en:
     dashboard_header:
       dashboard: Dashboard
       log_out: Log out
+
   time:
     formats:
       day: "%d %B , %Y"
