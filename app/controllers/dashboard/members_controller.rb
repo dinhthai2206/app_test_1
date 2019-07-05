@@ -1,6 +1,7 @@
 class Dashboard::MembersController < Dashboard::DashboardController
   def index
-    @members = Member.all
+    @q = Member.ransack(params[:q])
+    @members = @q.result.count_tests
   end
 
   def show

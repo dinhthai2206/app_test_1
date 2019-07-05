@@ -1,0 +1,5 @@
+<%= search_form_for @q, url: dashboard_members_url, remote: true do |f| %>
+  <%= f.label :name_cont, t(".search_member") %>
+  <%= f.search_field :name_or_email_cont %>
+  <%= f.submit t(".search") %>
+<% end %>
