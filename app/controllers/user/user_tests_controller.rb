@@ -6,12 +6,20 @@ class User::UserTestsController < User::StaticPagesController
   end
 
   def show
+    @questions = @user_test.test.questions
   end
 
   def edit
+    if @user_test.completed?
+      redirect_to user_user_test_path(@user_test)
+    else
+      @questions = @user_test.test.questions
+    end
   end
 
   def update
+    @user_test.completed!
+    redirect_to user_user_test_path(@user_test)
   end
 
   private

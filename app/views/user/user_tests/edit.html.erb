@@ -1,1 +1,38 @@
-Do the test
+<%= form_for @user_test, url: user_user_test_path(@user_test), method: :put do |f| %>
+  <ol>
+    <% @questions.each do |question| %>
+      <li>
+        <%= question.content %>
+        <% user_answer = question.user_answers.find{|a| a[:user_test_id] == @user_test.id} %>
+        <ul>
+          <% question.options.each do |option| %>
+            <li>
+              <%= radio_button_tag question.content, option.id, user_answer.present? && user_answer.option_id == option.id %>
+              <%= option.content %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ol>
+  <%= f.submit %>
+<% end %>
+
+<script>
+$(document).ready(function(){
+  $('#edit_user_test_<%= @user_test.id %>').change(function(e){
+    $.ajax({
+      url: '/user/user_tests/' + <%= @user_test.id %> + '/user_answers/',
+      method: 'POST',
+      data: {
+        "user_answer": {
+          "option_id": e.target.value,
+         },
+        "authenticity_token": "<%= form_authenticity_token %>",
+      }
+    }).done(function () {
+      console.log('Success');
+    });
+  });
+});
+</script>
