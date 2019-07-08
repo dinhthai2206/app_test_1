@@ -1,0 +1,7 @@
+<tr>
+  <td><%= t(".test_id", id: user_test.test.id) %></td>
+  <td><%= user_test.test.category.title %></td>
+  <td><%= user_test.score %></td>
+  <td><%= l(user_test.created_at, format: :day) %></td>
+  <td><%= link_to t(".show"), user_user_test_path(user_test), class: "btn btn-primary" %></td>
+</tr>
