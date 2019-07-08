@@ -1,0 +1,19 @@
+<% if @tests %>
+  <div>
+    <h3><%= Category.find(params[:category_id]).title if params[:category_id].present? %> Tests</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col"><%= t ".test" %></th>
+          <th scope="col"><%= t ".questions" %></th>
+          <th scope="col"><%= t ".members" %></th>
+          <th scope="col"><%= t ".action" %></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%= render @tests %>
+      </tbody>
+    </table>
+  </div>
+<% end %>

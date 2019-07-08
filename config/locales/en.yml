@@ -85,6 +85,32 @@ en:
       dashboard: Dashboard
       log_out: Log out
 
+  user:
+    tests:
+      index:
+        all_tests: All Tests
+        select: Select category
+        get: Get tests
+      table_test:
+        test: Test
+        questions: Questions
+        members: Members
+        action: Action
+      test:
+        test: Test %{id}
+        done: Done
+        join: Join
+    user_tests:
+      table_user_test:
+        test: Test
+        category: Category
+        score: Score
+        time: Time
+        action: Action
+      user_test:
+        test_id: Test %{id}
+        show: Show
+     
   time:
     formats:
       day: "%d %B , %Y"

@@ -16,5 +16,12 @@ Rails.application.routes.draw do
     devise_for :members, controllers: {registrations: "user/registrations",
       sessions: "user/sessions"}, path: ""
     get :profile, to: "members#show"
+    get :published_tests, to: "tests#index"
+    resources :tests do
+      member do
+        get :join
+      end
+    end
+    resources :user_tests
   end
 end
