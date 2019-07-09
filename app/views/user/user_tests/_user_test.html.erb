@@ -3,5 +3,9 @@
   <td><%= user_test.test.category.title %></td>
   <td><%= user_test.score %></td>
   <td><%= l(user_test.created_at, format: :day) %></td>
-  <td><%= link_to t(".show"), user_user_test_path(user_test), class: "btn btn-primary" %></td>
+  <% if user_test.completed? %>
+    <td><%= link_to t(".show"), user_user_test_path(user_test), class: "btn btn-primary" %></td>
+  <% else %>
+    <td><%= link_to t(".continue"), edit_user_user_test_path(user_test), class: "btn btn-success" %></td>
+  <% end %>
 </tr>

@@ -3,7 +3,7 @@
   <td><%= test.questions.count %></td>
   <td><%= test.members.count %></td>
   <% if current_user_member.tests.include? test %>
-    <td><%= link_to t(".done"), "#", class: "btn btn-secondary disabled" %></td>
+    <td><%= link_to t(".your_tests"), user_user_tests_path, class: "btn btn-primary" %></td>
   <% else %>
     <td><%= link_to t(".join"), join_user_test_path(test), class: "btn btn-success" %></td>
   <% end %>

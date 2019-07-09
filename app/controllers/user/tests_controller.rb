@@ -10,7 +10,7 @@ class User::TestsController < User::StaticPagesController
 
   def join
     @test = Test.find_by id: params[:id]
-    @user_test = @test.user_tests.create(user_id: current_user_member.id)
+    @user_test = @test.user_tests.find_or_create_by(user_id: current_user_member.id)
     redirect_to edit_user_user_test_path @user_test
   end
 end

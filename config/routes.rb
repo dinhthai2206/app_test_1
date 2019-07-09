@@ -22,6 +22,8 @@ Rails.application.routes.draw do
         get :join
       end
     end
-    resources :user_tests
+    resources :user_tests do
+      resources :user_answers, only: [:create]
+    end
   end
 end

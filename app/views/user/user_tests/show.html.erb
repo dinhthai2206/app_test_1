@@ -1,1 +1,33 @@
-<%= @user_test.test.id %>
+<h2>Test <%= @user_test.test.id %></h2>
+<div>Result: <%= @user_test.score %></div>
+
+<%= link_to t(".back"), user_user_tests_path %><br>
+
+<div>
+    <ol>
+    <% @questions.each do |question| %>
+      <li>
+        <%= question.content %>
+        <% user_answer = question.user_answers.find{|a| a[:user_test_id] == @user_test.id} %>
+        <ul>
+          <% question.options.each do |option| %>
+            <li>
+              <% if user_answer.present? && user_answer.option_id == option.id %>
+                <%= radio_button_tag question.content, option.id, true, disabled: true %>
+                <%= option.content %>
+                <% if option.right? %>
+                  <i class="fa fa-check fa-2x"></i>
+                <% else %>
+                  <i class="fa fa-times fa-2x"></i>
+                <% end %>
+              <% else %>
+                <%= radio_button_tag question.content, option.id, false, disabled: true  %>
+                <%= option.content %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ol>
+</div>
