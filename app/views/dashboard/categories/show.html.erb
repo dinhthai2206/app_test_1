@@ -1,1 +1,5 @@
+<div><%= render "breadcrumb" %></div>
+
 <h2><%= @category.title %></h2>
+<% @tests = @category.tests %>
+<%= render partial: "dashboard/tests/table_test" %>

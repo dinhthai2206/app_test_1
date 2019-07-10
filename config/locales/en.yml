@@ -5,6 +5,7 @@ en:
         categories: Categories
         category: Category
         tests: Tests
+      category:
         show: Show
         edit: Edit
         delete: Delete
@@ -16,6 +17,9 @@ en:
       edit:
         edit: Edit category
     members:
+      breadcrumb:
+        members: Members
+        new: New Member
       index:
         members: All members
         new: New user
@@ -50,10 +54,13 @@ en:
         remove_question: Remove question
         options: Options
         add_option: Add option
-      test:
-        test: Test %{id}
+      table_test:
+        test: Test
         show: Show
         edit: Edit
+        action: Action
+      test:
+        test: Test %{id}
         delete: Delete
         confirm: Are you sure?
         publish: Publish

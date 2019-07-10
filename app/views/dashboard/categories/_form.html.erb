@@ -1,9 +1,10 @@
 <%= form_for [:dashboard, @category] do |f| %>
-  <div class="field">
+  <%= render "shared/error_messages", object: @category %>
+  <div class="form-group">
     <%= f.label :title %>
     <%= f.text_field :title, placeholder: t(".insert"), class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit "Create category", class: "btn btn-primary" %>
   </div>
 <% end %>

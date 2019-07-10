@@ -1,7 +1,7 @@
-  <div class="nested-fields">
-    <div class="field">
+  <div class="nested-fields question-form">
+    <div class="form-group">
       <%= f.label :content %>
-      <%= f.text_field :content %>
+      <%= f.text_field :content, class:"form-control" %>
       <%= link_to_remove_association t(".remove_question"), f %>
     </div>
     <div>
