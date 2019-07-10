@@ -110,6 +110,9 @@ en:
       user_test:
         test_id: Test %{id}
         show: Show
+      edit:
+        submit: Submit test
+        confirm: Are you sure to submit your answers?
      
   time:
     formats:

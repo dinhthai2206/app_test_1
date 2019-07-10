@@ -73,5 +73,6 @@ a = member_id.product(published_test_id)
     user_id: a[n-1][0],
     test_id: a[n-1][1],
     score: rand(0..10),
+    complete: 1
   )
 end

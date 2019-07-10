@@ -1,22 +1,26 @@
-<%= form_for @user_test, url: user_user_test_path(@user_test), method: :put do |f| %>
-  <ol>
-    <% @questions.each do |question| %>
-      <li>
-        <%= question.content %>
-        <% user_answer = question.user_answers.find{|a| a[:user_test_id] == @user_test.id} %>
-        <ul>
-          <% question.options.each do |option| %>
-            <li>
-              <%= radio_button_tag question.content, option.id, user_answer.present? && user_answer.option_id == option.id %>
-              <%= option.content %>
-            </li>
-          <% end %>
-        </ul>
-      </li>
-    <% end %>
-  </ol>
-  <%= f.submit %>
-<% end %>
+<h2>Test <%= @user_test.test.id %></h2>
+<div id="countdown"></div>
+<div>
+  <%= form_for @user_test, url: user_user_test_path(@user_test), method: :put do |f| %>
+    <ol>
+      <% @questions.each do |question| %>
+        <li>
+          <%= question.content %>
+          <% user_answer = question.user_answers.find{|a| a[:user_test_id] == @user_test.id} %>
+          <ul>
+            <% question.options.each do |option| %>
+              <li>
+                <%= radio_button_tag question.content, option.id, user_answer.present? && user_answer.option_id == option.id %>
+                <%= option.content %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+    </ol>
+    <%= f.submit t(".submit"), data: {confirm: t(".confirm")} %>
+  <% end %>
+</div>
 
 <script>
 $(document).ready(function(){
@@ -34,5 +38,26 @@ $(document).ready(function(){
       console.log('Success');
     });
   });
+
+  var countDownDate = new Date("<%= @user_test.expired_at %>").getTime();
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("countdown").innerHTML = minutes + " : " + seconds;
+
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdown").innerHTML = "Time's up";
+      alert("Time's up");
+      $('#edit_user_test_<%= @user_test.id %>').submit();
+    }
+  }, 1000);
 });
 </script>
