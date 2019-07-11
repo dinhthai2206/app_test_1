@@ -1,8 +1,76 @@
 #countdown{
+  box-sizing: border-box;
+  border-style: double;
   text-align: center;
-  float: right;
-  margin: 50px;
+  margin: 10px 200px 30px 200px;
+  padding: 10px;
+  font-size: 40px;
+  background-color: lightpink;
+}
+
+.submit-test {
+  background-color: lightskyblue;
+  border-style: double;
   padding: 30px;
-  font-size: 30px;
+}
+
+.submit-test input[type="radio"] {
+  display:none; 
+}
+
+.submit-test label {
+  width: 80%;
+  background-color:#ddd;
+  padding: 10px 20px;
+  font-family:Arial;
+  font-size:16px;
+  border: 2px solid #444;
+  border-radius: 4px;    
+}
+
+.submit-test input[type="radio"]:checked + label { 
+  background-color:#bfb;
+  border-color: #4c4;
+}
+
+.submit-test label:hover {
+  background-color: #dfd;
+}
+
+.question {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.options {
+  margin-right: 40px;
+}
+
+.question-border {
+  border-style: groove;
+}
+
+.show-result input[type="radio"] {
+  display:none; 
+}
+
+.show-result label {
+  width: 80%;
+  background-color:#ddd;
+  padding: 10px 20px;
+  font-family:Arial;
+  font-size:16px;
+  border: 2px solid #444;
+  border-radius: 4px;    
+}
+
+.right input[type="radio"]:checked + label { 
+  background-color:#bfb;
+  border-color: #4c4;
+}
+
+.wrong input[type="radio"]:checked + label { 
   background-color: lightcoral;
+  border-color: crimson;
 }
