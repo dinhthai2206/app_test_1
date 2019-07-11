@@ -1,6 +1,9 @@
-<h1><%= current_user_member.name %></h1>
-<p>Email: <%= current_user_member.email %></p>
-<p>Gender: <%= current_user_member.gender %></p>
-<p>Tests: <%= current_user_member.tests.count %></p>
+<div class="container-fluid">
+  <h1><%= current_user_member.name %></h1>
+  <p>Email: <b><%= current_user_member.email %></b></p>
+  <p>Gender: <b><%= current_user_member.gender %></b></p>
+  <p>Tests: <b><%= current_user_member.tests.count %></b></p>
 
-<%= link_to "Finshed tests", user_user_tests_path %>
+  <%= link_to "Edit profile", edit_user_member_registration_path, class: "btn btn-primary" %>
+  <%= link_to "Your tests", user_user_tests_path, class: "btn btn-success" %>
+</div>

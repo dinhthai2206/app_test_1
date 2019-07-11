@@ -1,6 +1,16 @@
 @import "bootstrap";
-@import "countdown_timer";
+@import "user_tests";
+@import "agency";
+@import "all.min";
 
 ul li {
 	list-style: none;
+}
+
+body {
+	padding-top: 63px;
+}
+
+.container-fluid {
+	padding-top: 20px;
 }
