@@ -2,7 +2,8 @@ class User::UserTestsController < User::StaticPagesController
   before_action :find_user_test
 
   def index
-    @user_tests = current_user_member.user_tests.highest_score
+    @current_tests = current_user_member.user_tests.uncompleted
+    @user_tests = current_user_member.user_tests.completed.highest_score
   end
 
   def show
