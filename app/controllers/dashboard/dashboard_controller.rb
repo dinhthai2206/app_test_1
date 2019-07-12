@@ -1,14 +1,7 @@
 class Dashboard::DashboardController < ApplicationController
   layout "dashboard"
-  before_action :require_login
+  before_action :authenticate_dashboard_admin!
 
   def home
-  end
-
-  private
-  def require_login
-    unless current_dashboard_admin
-      redirect_to new_dashboard_admin_session_url
-    end
   end
 end

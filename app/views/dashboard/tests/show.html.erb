@@ -1,25 +1,22 @@
+<div><%= render "breadcrumb" %></div>
+
 <h2><%= t(".test", id: @test.id) %></h2>
-<%= link_to t(".back"), dashboard_tests_path %><br>
+<h3>Members: <%= @test.members.count %></h3>
 
 <div>
-  <ol>
-    <% @test.questions.each do |question| %>
-      <li>
-        <p><%= question.content %></p>
-        <ul style="list-style: none;">
+  <ul class="list-group">
+    <% @test.questions.each_with_index do |question, i| %>
+      <li class=list-group-item>
+        <p><%= i+1 %>. <%= question.content %></p>
+        <ul>
           <% question.options.each do |option| %>
             <li>
-              <% if option.right? %>
-                <%= radio_button_tag option.content, option.id, true, disabled: true %>
-                <%= option.content %>
-              <% else %>
-                <%= radio_button_tag option.content, option.id, false, disabled: true %>
-                <%= option.content %>
-              <% end %>
+              <%= radio_button_tag option.id, option.id, option.right?, disabled: true %>
+              <%= label_tag option.content %>
             </li>
           <% end %>
         </ul>
       </li>
     <% end %>
-  </ol>
+  </ul>
 </div>

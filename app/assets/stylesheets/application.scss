@@ -1,15 +1,24 @@
 @import "bootstrap";
 @import "user_tests";
 @import "agency";
+@import "dashboard_test";
 
 ul li {
 	list-style: none;
 }
 
 #user {
-	padding-top: 63px;
+	padding-top: 60px;
 }
 
 .container-fluid {
 	padding-top: 20px;
+}
+
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
 }

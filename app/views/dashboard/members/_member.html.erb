@@ -2,7 +2,7 @@
   <td><%= member.name %></td>
   <td><%= member.email %></td>
   <td><%= member.tests.count %></td>
-  <td><%= link_to t(".show"), dashboard_member_path(member) %></td>
+  <td><%= link_to t(".show"), dashboard_member_path(member), class: "btn btn-primary" %></td>
   <td>
     <%= link_to t(".delete"), dashboard_member_path(member), method: :delete, 
     data:{confirm: t(".confirm")}, class: "btn btn-danger" %>

@@ -1,4 +1,9 @@
+<div><%= render "breadcrumb" %></div>
 <h1><%= @member.name %></h1>
+<p>Email: <%= @member.email %></p>
+<p>Gender: <%= @member.gender %></p>
+<p>Number of tests: <%= @member.tests.count%></p>
+
 <table class="table table-striped">
   <thead>
     <tr>

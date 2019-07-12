@@ -1,6 +1,6 @@
 class Test < ApplicationRecord
   belongs_to :category
-  has_many :user_tests
+  has_many :user_tests, dependent: :destroy
   has_many :members, through: :user_tests
   has_many :questions, inverse_of: :test, dependent: :destroy
 

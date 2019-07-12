@@ -4,7 +4,7 @@
       <th scope="col"><%= sort_link @q, :name, t(".member"), {}, {remote: true} %></th>
       <th scope="col"><%= t ".email" %></th>
       <th scope="col"><%= sort_link @q, :tests_count_sort, t(".tests"), {}, {remote: true} %></th>
-      <th scope="col"><%= t ".action" %></th>
+      <th scope="col" colspan="2"><%= t ".action" %></th>
     </tr>
   </thead>
 
