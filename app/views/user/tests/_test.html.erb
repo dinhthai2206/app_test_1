@@ -4,8 +4,13 @@
   <td><%= test.questions.count %></td>
   <td><%= test.members.count %></td>
   <% if current_user_member.tests.include? test %>
-    <td><%= link_to t(".your_tests"), user_user_tests_path, class: "btn btn-primary" %></td>
+    <% user_test = test.user_tests.find_by(user_id: current_user_member.id) %>
+    <% if user_test.completed? %>
+      <td><%= link_to t(".show"), user_user_test_path(user_test), class: "btn btn-primary" %></td>
+    <% else %>
+      <td><%= link_to t(".continue"), edit_user_user_test_path(user_test), class: "btn btn-success" %></td>
+    <% end %>
   <% else %>
-    <td><%= link_to t(".join"), join_user_test_path(test), class: "btn btn-success" %></td>
+    <td><%= link_to t(".join"), join_user_test_path(test), class: "btn btn-info" %></td>
   <% end %>
 </tr>

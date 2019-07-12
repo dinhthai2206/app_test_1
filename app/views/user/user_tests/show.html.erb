@@ -1,36 +1,33 @@
-<div class="container-fluid">
+<div class="container-fluid w-50">
   <h2 class="text-center">Test <%= @user_test.test.id %></h2>
   <div class="text-center"><b>Result: <%= @user_test.score %></b></div>
   <div class="text-center">
     <%= link_to t(".back"), user_user_tests_path, class:"btn btn-secondary text-center" %>
   </div><br>
 
-  <div>
-    <ol>
-      <% @questions.each do |question| %>
-        <li>
-          <%= question.content %>
+  <div class="text-center show-result">
+    <ul class="list-group">
+      <% @questions.each_with_index do |question, i| %>
+        <li class="list-group-item">
+          <div class="question"><%= i+1 %>. <%= question.content %></div>
           <% user_answer = question.user_answers.find{|a| a[:user_test_id] == @user_test.id} %>
-          <ul>
+          <ul class="options">
             <% question.options.each do |option| %>
               <li>
                 <% if user_answer.present? && user_answer.option_id == option.id %>
-                  <%= radio_button_tag question.content, option.id, true, disabled: true %>
-                  <%= option.content %>
-                  <% if option.right? %>
-                    <i class="fa fa-check fa-2x"></i>
-                  <% else %>
-                    <i class="fa fa-times fa-2x"></i>
-                  <% end %>
+                  <div class="<%= option.right? ? "right" : "wrong"%>">
+                    <%= radio_button_tag question.id, option.id, true, disabled: true %>
+                    <%= label_tag "#{question.id}_#{option.id}", option.content %>
+                  </div>
                 <% else %>
-                  <%= radio_button_tag question.content, option.id, false, disabled: true  %>
-                  <%= option.content %>
+                  <%= radio_button_tag question.id, option.id, false, disabled: true  %>
+                  <%= label_tag "#{question.id}_#{option.id}", option.content %>
                 <% end %>
               </li>
             <% end %>
           </ul>
         </li><br>
       <% end %>
-    </ol>
+    </ul>
   </div>
 </div>
